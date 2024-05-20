@@ -1,16 +1,29 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-}
-
-.swim-lanes {
+    font-size: 14px;
+    background-color: rgb(255, 255, 255) !important;
+  }
+  
+  .swim-lanes {
     min-height: 60vh;
-}
-
-.task-card {
+  }
+  
+  .task-card {
     margin: 0 auto;
-}
-
-.task-card:hover {
+  }
+  
+  .task-card:hover {
     cursor: grab;
-}
+  }
+  
+  .ui-draggable-dragging {
+    z-index: 1000; 
+  }
+  
+  #todo-cards .card {
+    border: 1px solid rgb(203, 202, 209);
+  }
+  
+  .delete {
+    border: 1px solid white;
+  }
