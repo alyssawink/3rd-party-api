@@ -68,8 +68,43 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+    event.preventDefault();
 
-}
+    const task = $('#task').val().trim();
+    const deadline = $('#deadline').val();
+    const description = $('#description').val().trim();
+
+    if (!task || !deadline || !description) {
+        alert("Please fill out all fields.");
+        return;
+    }
+    const taskId = generateTaskId();
+
+    const newTask = {
+        name: task,
+        deadline: deadline,
+        description: description,
+        id: taskId,
+        status: 'to-do',
+    };
+
+    let updateTasks = taskList;
+
+    if (!updateTasks) {
+        updateTasks = [];
+    };
+
+    updateTasks.push(newTask);
+
+    localStorage.setItem('tasks', JSON.stringify(updateTasks));
+
+    $('#task').val('');
+    $('#deadline').val('');
+    $('#description').val('');
+    $('#formModal').modal('hide');
+
+    renderTaskList();
+};
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
